@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title># main-chat - The Void</title>
+    <meta name="description" content="The Void - Main chat channel for making friends, sharing thoughts, and connecting with like-minded people.">
+    <meta name="keywords" content="discord server, chat, friends, community, the void">
+    
+    <!-- Enhanced Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS with Animations -->
+    <style>
+        /* Enhanced Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 14px;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+            animation: backgroundPulse 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: floatUp 15s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .void-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #000000;
+            font-weight: 800;
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: block;
+            color: #b9bbbe;
+            text-decoration: none;
+            padding: 8px 12px;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: heroFloat 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            animation: shimmer 8s linear infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            animation: titleGlow 4s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+            to { text-shadow: 0 0 50px rgba(255, 255, 255, 0.6); }
+        }
+
+        .hero p {
+            font-size: clamp(16px, 3vw, 22px);
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-weight: 400;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #000000;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: cardSlideIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Sections */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title h2 {
+            font-size: clamp(28px, 5vw, 40px);
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title p {
+            color: #cccccc;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+        /* Enhanced Channel List */
+        .channel-list {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .channel-category {
+            color: #999999;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 0 12px 0;
+            padding: 0 12px;
+            position: relative;
+        }
+
+        .channel-category::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 12px;
+            width: 30px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 1px;
+        }
+
+        .channel-category:first-child {
+            margin-top: 0;
+        }
+
+        .channel-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            margin: 2px 0;
+            border-radius: 8px;
+            color: #b9bbbe;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            min-height: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .channel-item:hover::before {
+            left: 100%;
+        }
+
+        .channel-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+
+        .channel-item.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .channel-icon {
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .channel-item:hover .channel-icon {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Discord Badge */
+        .discord-badge {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #000000;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: auto;
+            letter-spacing: 0.5px;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+            animation: footerPulse 15s ease-in-out infinite;
+        }
+
+        @keyframes footerPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section {
+            animation: footerSlideIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .footer-section:nth-child(1) { animation-delay: 0.1s; }
+        .footer-section:nth-child(2) { animation-delay: 0.2s; }
+        .footer-section:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes footerSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-section h4 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffffff, transparent);
+            border-radius: 2px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999999;
+            font-size: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-bottom::before {
+            content: '✦';
+            display: block;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 8px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .nav-link {
+                padding: 12px 16px;
+                text-align: center;
+                border-radius: 8px;
+                margin: 2px 0;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                padding: 4px;
+            }
+
+            .mobile-toggle span {
+                width: 20px;
+                height: 2px;
+                background: #ffffff;
+                margin: 2px 0;
+                transition: 0.3s;
+                border-radius: 1px;
+            }
+            
+            .hero-content {
+                padding: 40px 24px;
+                margin: 0 12px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="void-icon">V</div>
+                The Void
+            </a>
+            
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active"># main-chat</a></li>
+                <li><a href="introduction.html" class="nav-link"># introduction</a></li>
+                <li><a href="philosophy.html" class="nav-link"># philosophy</a></li>
+                <li><a href="islam.html" class="nav-link"># islam</a></li>
+                <li><a href="christianity.html" class="nav-link"># christianity</a></li>
+                <li><a href="advice.html" class="nav-link"># advice-corner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1># main-chat</h1>
+                <p>Welcome to The Void - where conversations flow freely, friendships are born, and minds connect across the digital space</p>
+                
+                <div class="cta-buttons">
+                    <a href="introduction.html" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Introduce Yourself
+                    </a>
+                    <a href="#channels" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        Explore Channels
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channel Navigation -->
+    <section class="section animate-on-scroll" id="channels">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Channels</h2>
+                <p>Navigate through different areas of The Void community</p>
+            </div>
+            
+            <div class="channel-list">
+                <div class="channel-category">COMMUNITY AREA</div>
+                
+                <a href="index.html" class="channel-item active">
+                    <span class="channel-icon">#</span>
+                    <span>main-chat</span>
+                    <span class="discord-badge">Active</span>
+                </a>
+                
+                <a href="introduction.html" class="channel-item">
+                    <span class="channel-icon">#</span>
+                    <span>introduction</span>
+                </a>
+                
+                <div class="channel-category">LEARNING & DISCUSSION</div>
+                
+                <a href="philosophy.html" class="channel-item">
+                    <span class="channel-icon">#</span>
+                    <span>philosophy</span>
+                </a>
+                
+                <a href="islam.html" class="channel-item">
+                    <span class="channel-icon">#</span>
+                    <span>islam</span>
+                </a>
+                
+                <a href="christianity.html" class="channel-item">
+                    <span class="channel-icon">#</span>
+                    <span>christianity/judaism</span>
+                </a>
+                
+                <div class="channel-category">SUPPORT</div>
+                
+                <a href="advice.html" class="channel-item">
+                    <span class="channel-icon">#</span>
+                    <span>advice-corner</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Features -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Makes The Void Special</h2>
+                <p>Discover why our community stands out from the rest</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <i class="fas fa-users" style="font-size: 56px; color: #ffffff; margin-bottom: 20px; animation: iconFloat 4s ease-in-out infinite;"></i>
+                        <h3 style="color: #ffffff; font-size: 22px; font-weight: 700; margin-bottom: 8px;">Make New Friends</h3>
+                    </div>
+                    <p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 15px;">
+                        Connect with genuine people from around the world. Share your thoughts, experiences, and build meaningful friendships that transcend digital boundaries.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <i class="fas fa-comments" style="font-size: 56px; color: #ffffff; margin-bottom: 20px; animation: iconFloat 4s ease-in-out infinite 0.5s;"></i>
+                        <h3 style="color: #ffffff; font-size: 22px; font-weight: 700; margin-bottom: 8px;">Deep Conversations</h3>
+                    </div>
+                    <p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 15px;">
+                        Engage in meaningful discussions about life, philosophy, religion, and everything that matters. Every conversation is an opportunity to learn and grow.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <i class="fas fa-heart" style="font-size: 56px; color: #ffffff; margin-bottom: 20px; animation: iconFloat 4s ease-in-out infinite 1s;"></i>
+                        <h3 style="color: #ffffff; font-size: 22px; font-weight: 700; margin-bottom: 8px;">Safe Environment</h3>
+                    </div>
+                    <p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 15px;">
+                        The Void is a judgment-free zone where everyone is welcome. Express yourself authentically while respecting others in our inclusive community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Activities -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>What You Can Do Here</h2>
+                <p>Popular activities and conversations in our main chat</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-microphone" style="font-size: 18px; opacity: 0.9;"></i>
+                        Share Your Day
+                    </h4>
+                    <p style="color: #cccccc; line-height: 1.6; margin-bottom: 16px; font-size: 15px;">
+                        Tell us about your experiences, thoughts, and daily adventures. Our community loves hearing what makes each member unique and special.
+                    </p>
+                    <ul style="color: #b9bbbe; font-size: 14px; list-style: none; padding: 0;">
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Daily check-ins and life updates
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Personal achievements and milestones
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Interesting experiences and stories
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-question-circle" style="font-size: 18px; opacity: 0.9;"></i>
+                        Ask Questions
+                    </h4>
+                    <p style="color: #cccccc; line-height: 1.6; margin-bottom: 16px; font-size: 15px;">
+                        Curious about something? Need advice? Our community is here to help with thoughtful answers and diverse perspectives.
+                    </p>
+                    <ul style="color: #b9bbbe; font-size: 14px; list-style: none; padding: 0;">
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Life advice and personal guidance
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Educational and learning topics
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Random curiosities and wonderings
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-lightbulb" style="font-size: 18px; opacity: 0.9;"></i>
+                        Share Ideas
+                    </h4>
+                    <p style="color: #cccccc; line-height: 1.6; margin-bottom: 16px; font-size: 15px;">
+                        Got an interesting thought or creative idea? Share it with the community and spark engaging discussions that inspire everyone.
+                    </p>
+                    <ul style="color: #b9bbbe; font-size: 14px; list-style: none; padding: 0;">
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Creative projects and concepts
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Philosophical thoughts and theories
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Innovative solutions to problems
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-hands-helping" style="font-size: 18px; opacity: 0.9;"></i>
+                        Support Others
+                    </h4>
+                    <p style="color: #cccccc; line-height: 1.6; margin-bottom: 16px; font-size: 15px;">
+                        Be part of a caring community by offering support, encouragement, and positive vibes to fellow members who need it.
+                    </p>
+                    <ul style="color: #b9bbbe; font-size: 14px; list-style: none; padding: 0;">
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Emotional support and encouragement
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Helpful advice and suggestions
+                        </li>
+                        <li style="margin: 8px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff; font-weight: 600;">•</span>
+                            Celebrating others' achievements
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Guidelines -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Guidelines</h2>
+                <p>Simple rules to keep The Void welcoming and safe for everyone</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 20px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-check-circle" style="color: #4ade80; font-size: 18px;"></i>
+                        What We Love to See
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700; font-size: 16px;">✓</span>
+                            Respectful and thoughtful conversations
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700; font-size: 16px;">✓</span>
+                            Sharing personal experiences and insights
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700; font-size: 16px;">✓</span>
+                            Asking genuine questions and seeking advice
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700; font-size: 16px;">✓</span>
+                            Supporting and encouraging fellow members
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700; font-size: 16px;">✓</span>
+                            Open-minded discussions about different topics
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 20px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-times-circle" style="color: #ef4444; font-size: 18px;"></i>
+                        What We Don't Allow
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700; font-size: 16px;">✗</span>
+                            Harassment, bullying, or personal attacks
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700; font-size: 16px;">✗</span>
+                            Spam, excessive self-promotion, or advertising
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700; font-size: 16px;">✗</span>
+                            Hate speech, discrimination, or offensive content
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700; font-size: 16px;">✗</span>
+                            Sharing inappropriate or NSFW material
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700; font-size: 16px;">✗</span>
+                            Trolling or deliberately disruptive behavior
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 50px 40px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));">
+                <div style="margin-bottom: 30px;">
+                    <i class="fas fa-rocket" style="font-size: 64px; color: #ffffff; margin-bottom: 20px; animation: rocketFloat 3s ease-in-out infinite;"></i>
+                    <h2 style="color: #ffffff; margin-bottom: 16px; font-size: 32px; font-weight: 800; text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);">Ready to Join The Conversation?</h2>
+                </div>
+                
+                <p style="color: #cccccc; font-size: 18px; margin-bottom: 30px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    The Void is more than just a chat room - it's a thriving community where meaningful connections are made every day. 
+                    Start your journey by introducing yourself and become part of our growing digital family.
+                </p>
+                
+                <div class="cta-buttons" style="margin-bottom: 30px;">
+                    <a href="introduction.html" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Introduce Yourself
+                    </a>
+                    <a href="philosophy.html" class="btn btn-secondary">
+                        <i class="fas fa-book-open"></i>
+                        Explore Topics
+                    </a>
+                </div>
+                
+                <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <p style="color: #999999; font-size: 14px; line-height: 1.5; font-style: italic;">
+                        "New to The Void? Check out our specialized channels for philosophy, religion, and advice. 
+                        There's a perfect space for every type of conversation and connection."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>The Void Community</h4>
+                    <p>A Discord-inspired digital sanctuary where conversations flow freely, friendships are born, and minds connect across the vast expanse of cyberspace.</p>
+                    <p style="margin-top: 16px; font-style: italic; opacity: 0.8;">"In the void, we find connection. In silence, we discover voices. In darkness, we create light."</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community Channels</h4>
+                    <a href="introduction.html"># introduction</a>
+                    <a href="philosophy.html"># philosophy</a>
+                    <a href="islam.html"># islam</a>
+                    <a href="christianity.html"># christianity/judaism</a>
+                    <a href="advice.html"># advice-corner</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Our Values</h4>
+                    <p>✦ Make genuine connections</p>
+                    <p>✦ Share meaningful conversations</p>
+                    <p>✦ Learn and grow together</p>
+                    <p>✦ Respect and support each other</p>
+                    <p>✦ Embrace diversity of thought</p>
+                    <p>✦ Create a safe digital space</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Void Community. Where minds meet and friendships flourish in the digital realm.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Card stagger animation
+        function staggerCards() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.1) + 's';
+            });
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateOnScroll();
+            staggerCards();
+        });
+
+        // Add icon float animation
+        const iconFloatCSS = `
+            @keyframes iconFloat {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+            }
+            
+            @keyframes rocketFloat {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                50% { transform: translateY(-12px) rotate(5deg); }
+            }
+        `;
+        
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = iconFloatCSS;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>

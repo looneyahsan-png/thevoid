@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title># islam - The Void</title>
+    <meta name="description" content="Explore Islamic teachings, Quran verses, Hadith collections, and engage in respectful discussions about Islam in The Void community.">
+    <meta name="keywords" content="islam, quran, hadith, sunnah, islamic teachings, muslim community, the void">
+    
+    <!-- Enhanced Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Islam-specific animations */
+        .islamic-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: revealeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .islamic-card:nth-child(1) { animation-delay: 0.1s; }
+        .islamic-card:nth-child(2) { animation-delay: 0.2s; }
+        .islamic-card:nth-child(3) { animation-delay: 0.3s; }
+        .islamic-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes revealeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .islamic-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .islamic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .islamic-card:hover::before {
+            left: 100%;
+        }
+
+        .quran-verse {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            position: relative;
+            animation: verseGlow 4s ease-in-out infinite alternate;
+            font-family: 'Amiri', serif;
+        }
+
+        @keyframes verseGlow {
+            from { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+            to { box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); }
+        }
+
+        .quran-verse::before {
+            content: '﷽';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #000000;
+            color: #ffffff;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hadith-card {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 4px solid #ffffff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            animation: hadithSlideIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .hadith-card:nth-child(odd) { animation-delay: 0.2s; }
+        .hadith-card:nth-child(even) { animation-delay: 0.4s; }
+
+        @keyframes hadithSlideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hadith-card::after {
+            content: '📿';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: beadSpin 4s linear infinite;
+        }
+
+        @keyframes beadSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .islamic-symbol {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            animation: symbolFloat 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes symbolFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: pillarRise 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .pillar-card:nth-child(1) { animation-delay: 0.1s; }
+        .pillar-card:nth-child(2) { animation-delay: 0.2s; }
+        .pillar-card:nth-child(3) { animation-delay: 0.3s; }
+        .pillar-card:nth-child(4) { animation-delay: 0.4s; }
+        .pillar-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes pillarRise {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pillar-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .pillar-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            margin: 0 auto 16px;
+            animation: numberPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .islamic-header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: headerGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes headerGlow {
+            from { box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); }
+            to { box-shadow: 0 0 50px rgba(255, 255, 255, 0.2); }
+        }
+
+        .islamic-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            animation: headerShimmer 8s linear infinite;
+        }
+
+        @keyframes headerShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: right;
+            direction: rtl;
+            margin: 16px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .resource-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .floating-crescent {
+            animation: crescentFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes crescentFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="void-icon">V</div>
+                The Void
+            </a>
+            
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link"># main-chat</a></li>
+                <li><a href="introduction.html" class="nav-link"># introduction</a></li>
+                <li><a href="philosophy.html" class="nav-link"># philosophy</a></li>
+                <li><a href="islam.html" class="nav-link active"># islam</a></li>
+                <li><a href="christianity.html" class="nav-link"># christianity</a></li>
+                <li><a href="advice.html" class="nav-link"># advice-corner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1># islam</h1>
+                <p>Explore the beautiful teachings of Islam, study the Quran and Hadith, and engage in respectful discussions about faith, spirituality, and Islamic wisdom.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#quran-verses" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i>
+                        Read Quran
+                    </a>
+                    <a href="#hadith-collection" class="btn btn-secondary">
+                        <i class="fas fa-scroll"></i>
+                        Study Hadith
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Islamic Welcome -->
+    <section class="section">
+        <div class="container">
+            <div class="islamic-header">
+                <div class="islamic-symbol floating-crescent">☪️</div>
+                <h2 style="color: #ffffff; font-size: 36px; font-weight: 800; margin-bottom: 16px; position: relative; z-index: 2;">Assalamu Alaikum wa Rahmatullahi wa Barakatuh</h2>
+                <p style="color: #cccccc; font-size: 18px; line-height: 1.6; max-width: 700px; margin: 0 auto; position: relative; z-index: 2;">
+                    Welcome to our Islamic discussion space. Here we explore the teachings of Islam with respect, understanding, and love. 
+                    Whether you're Muslim or simply curious about Islamic teachings, all are welcome to learn and share.
+                </p>
+                <div class="arabic-text" style="position: relative; z-index: 2;">
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </div>
+                <p style="color: #cccccc; font-size: 14px; font-style: italic; position: relative; z-index: 2;">
+                    "In the name of Allah, the Most Gracious, the Most Merciful"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Five Pillars of Islam -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Five Pillars of Islam</h2>
+                <p>The fundamental acts of worship that form the foundation of Muslim life</p>
+            </div>
+            
+            <div class="grid grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 12px;">Shahada</h4>
+                    <p style="color: #cccccc; font-size: 14px; line-height: 1.5; margin-bottom: 12px;">Declaration of Faith</p>
+                    <div class="arabic-text" style="font-size: 14px; text-align: center; direction: ltr;">
+                        لا إله إلا الله محمد رسول الله
+                    </div>
+                    <p style="color: #cccccc; font-size: 12px; font-style: italic;">
+                        "There is no god but Allah, and Muhammad is His messenger"
+                    </p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 12px;">Salah</h4>
+                    <p style="color: #cccccc; font-size: 14px; line-height: 1.5; margin-bottom: 12px;">Prayer</p>
+                    <i class="fas fa-praying-hands" style="font-size: 24px; color: #ffffff; margin: 8px 0;"></i>
+                    <p style="color: #cccccc; font-size: 12px; font-style: italic;">
+                        Five daily prayers connecting believers with Allah
+                    </p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                    <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 12px;">Zakat</h4>
+                    <p style="color: #cccccc; font-size: 14px; line-height: 1.5; margin-bottom: 12px;">Charity</p>
+                    <i class="fas fa-hand-holding-heart" style="font-size: 24px; color: #ffffff; margin: 8px 0;"></i>
+                    <p style="color: #cccccc; font-size: 12px; font-style: italic;">
+                        Obligatory giving to help those in need
+                    </p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">4</div>
+                    <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 12px;">Sawm</h4>
+                    <p style="color: #cccccc; font-size: 14px; line-height: 1.5; margin-bottom: 12px;">Fasting</p>
+                    <i class="fas fa-moon" style="font-size: 24px; color: #ffffff; margin: 8px 0;"></i>
+                    <p style="color: #cccccc; font-size: 12px; font-style: italic;">
+                        Fasting during the month of Ramadan
+                    </p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">5</div>
+                    <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 12px;">Hajj</h4>
+                    <p style="color: #cccccc; font-size: 14px; line-height: 1.5; margin-bottom: 12px;">Pilgrimage</p>
+                    <i class="fas fa-kaaba" style="font-size: 24px; color: #ffffff; margin: 8px 0;"></i>
+                    <p style="color: #cccccc; font-size: 12px; font-style: italic;">
+                        Pilgrimage to Mecca for those who are able
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Verses Section -->
+    <section class="section" id="quran-verses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Beautiful Verses from the Quran</h2>
+                <p>Explore the divine guidance and wisdom of Allah's words</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="islamic-card">
+                    <div class="quran-verse">
+                        <div class="arabic-text">
+                            وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+                        </div>
+                        <p style="color: #ffffff; font-size: 16px; font-weight: 600; margin: 16px 0 8px 0;">
+                            "And whoever fears Allah - He will make for him a way out and will provide for him from where he does not expect."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            Surah At-Talaq (65:2-3)
+                        </p>
+                        <a href="https://quran.com/65/2-3" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Quran.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="islamic-card">
+                    <div class="quran-verse">
+                        <div class="arabic-text">
+                            وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِن رَّوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ
+                        </div>
+                        <p style="color: #ffffff; font-size: 16px; font-weight: 600; margin: 16px 0 8px 0;">
+                            "And do not despair of the mercy of Allah. Indeed, no one despairs of the mercy of Allah except the disbelieving people."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            Surah Yusuf (12:87)
+                        </p>
+                        <a href="https://quran.com/12/87" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Quran.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="islamic-card">
+                    <div class="quran-verse">
+                        <div class="arabic-text">
+                            وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ
+                        </div>
+                        <p style="color: #ffffff; font-size: 16px; font-weight: 600; margin: 16px 0 8px 0;">
+                            "And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            Surah At-Talaq (65:3)
+                        </p>
+                        <a href="https://quran.com/65/3" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Quran.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="islamic-card">
+                    <div class="quran-verse">
+                        <div class="arabic-text">
+                            وَبَشِّرِ الصَّابِرِينَ الَّذِينَ إِذَا أَصَابَتْهُم مُّصِيبَةٌ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ
+                        </div>
+                        <p style="color: #ffffff; font-size: 16px; font-weight: 600; margin: 16px 0 8px 0;">
+                            "And give good tidings to the patient, Who, when disaster strikes them, say, 'Indeed we belong to Allah, and indeed to Him we will return.'"
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            Surah Al-Baqarah (2:155-156)
+                        </p>
+                        <a href="https://quran.com/2/155-156" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Quran.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hadith Collection Section -->
+    <section class="section" id="hadith-collection">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hadith Collection</h2>
+                <p>Wisdom from the sayings and actions of Prophet Muhammad (ﷺ)</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="islamic-card">
+                    <div class="hadith-card">
+                        <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 12px; font-size: 16px;">On Kindness</h5>
+                        <p style="color: #ffffff; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
+                            "The believers in their mutual kindness, compassion, and sympathy are just one body; when a limb suffers, the whole body responds to it with wakefulness and fever."
+                        </p>
+                        <p style="color: #cccccc; font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                            - Prophet Muhammad (ﷺ)
+                        </p>
+                        <a href="https://sunnah.com/bukhari:6011" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Sunnah.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="islamic-card">
+                    <div class="hadith-card">
+                        <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 12px; font-size: 16px;">On Knowledge</h5>
+                        <p style="color: #ffffff; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
+                            "Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise."
+                        </p>
+                        <p style="color: #cccccc; font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                            - Prophet Muhammad (ﷺ)
+                        </p>
+                        <a href="https://sunnah.com/muslim:2699" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Sunnah.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="islamic-card">
+                    <div class="hadith-card">
+                        <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 12px; font-size: 16px;">On Character</h5>
+                        <p style="color: #ffffff; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
+                            "The best of people are those who benefit others."
+                        </p>
+                        <p style="color: #cccccc; font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                            - Prophet Muhammad (ﷺ)
+                        </p>
+                        <a href="https://sunnah.com/search?q=best+of+people+benefit+others" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Sunnah.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="islamic-card">
+                    <div class="hadith-card">
+                        <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 12px; font-size: 16px;">On Patience</h5>
+                        <p style="color: #ffffff; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
+                            "No one eats better food than that which he eats out of the work of his hand."
+                        </p>
+                        <p style="color: #cccccc; font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                            - Prophet Muhammad (ﷺ)
+                        </p>
+                        <a href="https://sunnah.com/bukhari:2072" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read on Sunnah.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Islamic Resources -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Islamic Resources</h2>
+                <p>Authentic sources for learning about Islam</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <i class="fas fa-book-open islamic-symbol" style="font-size: 48px; margin-bottom: 16px;"></i>
+                        <h4 style="color: #ffffff; font-size: 18px; font-weight: 700;">Quran.com</h4>
+                    </div>
+                    <p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 14px; margin-bottom: 16px;">
+                        Read the complete Quran with translations in multiple languages, audio recitations, and detailed commentary.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://quran.com/" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visit Quran.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <i class="fas fa-scroll islamic-symbol" style="font-size: 48px; margin-bottom: 16px;"></i>
+                        <h4 style="color: #ffffff; font-size: 18px; font-weight: 700;">Sunnah.com</h4>
+                    </div>
+                    <p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 14px; margin-bottom: 16px;">
+                        Comprehensive collection of authentic Hadith from major collections including Bukhari, Muslim, and others.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://sunnah.com/" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visit Sunnah.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <i class="fas fa-mosque islamic-symbol" style="font-size: 48px; margin-bottom: 16px;"></i>
+                        <h4 style="color: #ffffff; font-size: 18px; font-weight: 700;">IslamQA</h4>
+                    </div>
+                    <p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 14px; margin-bottom: 16px;">
+                        Authentic Islamic answers to questions about faith, practice, and daily life from qualified scholars.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://islamqa.info/en" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visit IslamQA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Islamic Topics for Discussion -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discussion Topics</h2>
+                <p>Explore these meaningful Islamic topics with the community</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-heart floating-crescent" style="font-size: 20px;"></i>
+                        Faith & Spirituality
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Strengthening your relationship with Allah
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            The beauty of Islamic prayers and dhikr
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Finding peace through Islamic teachings
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            The concept of Tawakkul (trust in Allah)
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Islamic perspective on life's challenges
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-users floating-crescent" style="font-size: 20px;"></i>
+                        Community & Ethics
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Islamic principles of social justice
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            The importance of charity and helping others
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Building strong Muslim communities
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Islamic ethics in modern life
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Interfaith dialogue and understanding
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-book floating-crescent" style="font-size: 20px;"></i>
+                        Knowledge & Learning
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Understanding Quranic verses and their context
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Learning from the Sunnah of Prophet Muhammad (ﷺ)
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Islamic history and its lessons
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            The importance of seeking knowledge in Islam
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Islamic contributions to science and philosophy
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-calendar floating-crescent" style="font-size: 20px;"></i>
+                        Practice & Worship
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Tips for maintaining regular prayers
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Making the most of Ramadan
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Hajj and Umrah experiences
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Islamic supplications and their benefits
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">•</span>
+                            Balancing dunya (worldly life) and akhirah (hereafter)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Guidelines -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discussion Guidelines</h2>
+                <p>Maintaining respect and Islamic etiquette in our discussions</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-check-circle" style="color: #4ade80;"></i>
+                        Islamic Etiquette
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700;">✓</span>
+                            Begin with Islamic greetings (Assalamu Alaikum)
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700;">✓</span>
+                            Speak with wisdom and kindness
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700;">✓</span>
+                            Support statements with Quran and Hadith
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700;">✓</span>
+                            Respect different schools of Islamic thought
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4ade80; font-weight: 700;">✓</span>
+                            Welcome non-Muslims with respect and patience
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                        What to Avoid
+                    </h4>
+                    <ul style="color: #cccccc; line-height: 1.7; list-style: none; padding: 0; font-size: 15px;">
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700;">✗</span>
+                            Sectarian arguments or division
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700;">✗</span>
+                            Speaking without knowledge
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700;">✗</span>
+                            Harsh or judgmental language
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700;">✗</span>
+                            Disrespecting other religions
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444; font-weight: 700;">✗</span>
+                            Spreading unverified information
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Discussion -->
+    <section class="section">
+        <div class="container">
+            <div class="card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 50px 40px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));">
+                <div style="margin-bottom: 30px;">
+                    <div class="islamic-symbol floating-crescent" style="font-size: 64px; margin-bottom: 20px;">🕌</div>
+                    <h2 style="color: #ffffff; margin-bottom: 16px; font-size: 32px; font-weight: 800; text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);">Join Our Islamic Community</h2>
+                </div>
+                
+                <p style="color: #cccccc; font-size: 18px; margin-bottom: 30px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Whether you're seeking to deepen your Islamic knowledge, share your experiences, or learn about Islam for the first time, 
+                    our community welcomes you with open hearts. Let's grow together in faith and understanding.
+                </p>
+                
+                <div class="cta-buttons" style="margin-bottom: 30px;">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-comments"></i>
+                        Join Discussion
+                    </a>
+                    <a href="introduction.html" class="btn btn-secondary">
+                        <i class="fas fa-user-plus"></i>
+                        Introduce Yourself
+                    </a>
+                </div>
+                
+                <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="arabic-text" style="font-size: 16px; margin-bottom: 8px;">
+                        وَاللَّهُ أَعْلَمُ
+                    </div>
+                    <p style="color: #999999; font-size: 14px; line-height: 1.5; font-style: italic;">
+                        "And Allah knows best" - May our discussions be blessed with wisdom and understanding.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Islam Channel</h4>
+                    <p>A respectful space for learning about Islamic teachings, exploring the Quran and Hadith, and engaging in meaningful discussions about faith and spirituality.</p>
+                    <div class="arabic-text" style="font-size: 14px; margin-top: 12px;">
+                        رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
+                    </div>
+                    <p style="font-size: 12px; font-style: italic; opacity: 0.8; margin-top: 8px;">
+                        "Our Lord, give us good in this world and good in the hereafter, and save us from the punishment of the Fire."
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Islamic Resources</h4>
+                    <a href="https://quran.com/" target="_blank">Quran.com - Complete Quran</a>
+                    <a href="https://sunnah.com/" target="_blank">Sunnah.com - Hadith Collection</a>
+                    <a href="https://islamqa.info/en" target="_blank">IslamQA - Scholarly Answers</a>
+                    <a href="https://islamhouse.com/" target="_blank">IslamHouse - Free Resources</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Topics of Discussion</h4>
+                    <p>✦ Quran and Tafsir</p>
+                    <p>✦ Hadith and Sunnah</p>
+                    <p>✦ Islamic History</p>
+                    <p>✦ Fiqh and Islamic Law</p>
+                    <p>✦ Spirituality and Dhikr</p>
+                    <p>✦ Contemporary Islamic Issues</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Void Community. May Allah bless our discussions with wisdom and understanding.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Islamic card hover effects
+        function initIslamicCards() {
+            const cards = document.querySelectorAll('.islamic-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const verse = card.querySelector('.quran-verse');
+                    if (verse) {
+                        verse.style.transform = 'scale(1.02)';
+                        verse.style.boxShadow = '0 0 40px rgba(255, 255, 255, 0.3)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const verse = card.querySelector('.quran-verse');
+                    if (verse) {
+                        verse.style.transform = 'scale(1)';
+                        verse.style.boxShadow = '0 0 30px rgba(255, 255, 255, 0.2)';
+                    }
+                });
+            });
+        }
+
+        // Pillar card interactions
+        function initPillarCards() {
+            const pillars = document.querySelectorAll('.pillar-card');
+            pillars.forEach(pillar => {
+                pillar.addEventListener('mouseenter', () => {
+                    const number = pillar.querySelector('.pillar-number');
+                    if (number) {
+                        number.style.transform = 'scale(1.2) rotate(10deg)';
+                        number.style.boxShadow = '0 8px 20px rgba(255, 255, 255, 0.3)';
+                    }
+                });
+                
+                pillar.addEventListener('mouseleave', () => {
+                    const number = pillar.querySelector('.pillar-number');
+                    if (number) {
+                        number.style.transform = 'scale(1) rotate(0deg)';
+                        number.style.boxShadow = 'none';
+                    }
+                });
+            });
+        }
+
+        // Resource link hover effects
+        function initResourceLinks() {
+            const links = document.querySelectorAll('.resource-link');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    link.style.transform = 'translateY(-2px) scale(1)';
+                });
+            });
+        }
+
+        // Hadith card animations
+        function initHadithCards() {
+            const hadithCards = document.querySelectorAll('.hadith-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            hadithCards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Arabic text reading direction
+        function initArabicText() {
+            const arabicTexts = document.querySelectorAll('.arabic-text');
+            arabicTexts.forEach(text => {
+                text.addEventListener('mouseenter', () => {
+                    text.style.background = 'rgba(255, 255, 255, 0.06)';
+                    text.style.transform = 'scale(1.02)';
+                });
+                
+                text.addEventListener('mouseleave', () => {
+                    text.style.background = 'rgba(255, 255, 255, 0.03)';
+                    text.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initIslamicCards();
+            initPillarCards();
+            initResourceLinks();
+            initHadithCards();
+            initArabicText();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

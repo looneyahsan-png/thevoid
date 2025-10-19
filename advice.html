@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title># advice-corner - The Void</title>
+    <meta name="description" content="Get advice, share wisdom, and connect with the community in The Void's advice corner. Submit your questions and find support.">
+    <meta name="keywords" content="advice, help, support, community, wisdom, guidance, the void">
+    
+    <!-- Enhanced Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Advice Corner-specific animations */
+        .advice-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: adviceSlideIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .advice-card:nth-child(1) { animation-delay: 0.1s; }
+        .advice-card:nth-child(2) { animation-delay: 0.2s; }
+        .advice-card:nth-child(3) { animation-delay: 0.3s; }
+        .advice-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes adviceSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .advice-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .advice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .advice-card:hover::before {
+            left: 100%;
+        }
+
+        .advice-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            animation: formGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes formGlow {
+            from { box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); }
+            to { box-shadow: 0 0 50px rgba(255, 255, 255, 0.2); }
+        }
+
+        .advice-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            animation: formShimmer 8s linear infinite;
+        }
+
+        @keyframes formShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .wisdom-quote {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #ffffff;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            position: relative;
+            animation: quoteSlideIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .wisdom-quote:nth-child(odd) { animation-delay: 0.2s; }
+        .wisdom-quote:nth-child(even) { animation-delay: 0.4s; }
+
+        @keyframes quoteSlideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .wisdom-quote::before {
+            content: '💡';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: bulbGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes bulbGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .advice-symbol {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            animation: symbolFloat 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes symbolFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .advice-header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: headerGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes headerGlow {
+            from { box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); }
+            to { box-shadow: 0 0 50px rgba(255, 255, 255, 0.2); }
+        }
+
+        .advice-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            animation: headerShimmer 8s linear infinite;
+        }
+
+        @keyframes headerShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .floating-lightbulb {
+            animation: lightbulbFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes lightbulbFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        .social-connect {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .social-connect:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 16px;
+            transition: all 0.3s ease;
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .instagram-icon {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: #ffffff;
+        }
+
+        .discord-icon {
+            background: linear-gradient(135deg, #5865f2, #7289da);
+            color: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .notification {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-weight: 500;
+            z-index: 10000;
+            animation: slideInRight 0.3s ease-out;
+            max-width: 350px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification.success {
+            background: rgba(34, 197, 94, 0.9);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .notification.error {
+            background: rgba(239, 68, 68, 0.9);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .form-step {
+            animation: stepReveal 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .form-step:nth-child(1) { animation-delay: 0.1s; }
+        .form-step:nth-child(2) { animation-delay: 0.2s; }
+        .form-step:nth-child(3) { animation-delay: 0.3s; }
+        .form-step:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes stepReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #000000;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="void-icon">V</div>
+                The Void
+            </a>
+            
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link"># main-chat</a></li>
+                <li><a href="introduction.html" class="nav-link"># introduction</a></li>
+                <li><a href="philosophy.html" class="nav-link"># philosophy</a></li>
+                <li><a href="islam.html" class="nav-link"># islam</a></li>
+                <li><a href="christianity.html" class="nav-link"># christianity</a></li>
+                <li><a href="advice.html" class="nav-link active"># advice-corner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1># advice-corner</h1>
+                <p>Share your wisdom, seek guidance, and connect with our supportive community. Everyone has something valuable to offer and learn.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#submit-advice" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Share Advice
+                    </a>
+                    <a href="#faq" class="btn btn-secondary">
+                        <i class="fas fa-question-circle"></i>
+                        View FAQ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advice Corner Welcome -->
+    <section class="section">
+        <div class="container">
+            <div class="advice-header">
+                <div class="advice-symbol floating-lightbulb">💡</div>
+                <h2 style="color: #ffffff; font-size: 36px; font-weight: 800; margin-bottom: 16px; position: relative; z-index: 2;">Welcome to the Advice Corner</h2>
+                <p style="color: #cccccc; font-size: 18px; line-height: 1.6; max-width: 700px; margin: 0 auto; position: relative; z-index: 2;">
+                    This is our community's wisdom hub where experience meets curiosity. Share your insights, 
+                    ask for guidance, and be part of a supportive network that believes everyone has something valuable to contribute.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Advice Form -->
+    <section class="section" id="submit-advice">
+        <div class="container">
+            <div class="section-title">
+                <h2>Share Your Wisdom</h2>
+                <p>Your advice could be exactly what someone needs to hear today</p>
+            </div>
+            
+            <div class="advice-form">
+                <form id="adviceForm" onsubmit="submitAdvice(event)">
+                    <div class="form-step">
+                        <div class="form-group">
+                            <label for="username">Your Name/Username</label>
+                            <input type="text" id="username" name="username" class="form-input" placeholder="How should we address you?" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step">
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step">
+                        <div class="form-group">
+                            <label for="advice">Your Advice/Wisdom</label>
+                            <textarea id="advice" name="advice" class="form-textarea" placeholder="Share your wisdom, life lessons, tips, or advice that could help others. What insights have you gained from your experiences?" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Share My Wisdom
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect with Me -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect with Me Directly</h2>
+                <p>Reach out for personal advice or just to chat</p>
+            </div>
+            
+            <div class="grid grid-2" style="max-width: 600px; margin: 0 auto;">
+                <div class="social-connect">
+                    <div class="social-icon instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px;">Instagram</h4>
+                    <p style="color: #cccccc; font-size: 14px; margin-bottom: 16px; line-height: 1.5;">
+                        Follow for daily inspiration and send me a DM for personal advice or questions.
+                    </p>
+                    <a href="https://instagram.com/ahsanijaz010" target="_blank" class="resource-link">
+                        <i class="fab fa-instagram"></i>
+                        @ahsanijaz010
+                    </a>
+                </div>
+                
+                <div class="social-connect">
+                    <div class="social-icon discord-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px;">Discord</h4>
+                    <p style="color: #cccccc; font-size: 14px; margin-bottom: 16px; line-height: 1.5;">
+                        Join me on Discord for real-time conversations and community discussions.
+                    </p>
+                    <a href="https://discord.com/users/ahsan_prime" target="_blank" class="resource-link">
+                        <i class="fab fa-discord"></i>
+                        ahsan_prime
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wisdom Quotes -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Words of Wisdom</h2>
+                <p>Inspiring quotes to guide and motivate</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="advice-card">
+                    <div class="wisdom-quote">
+                        <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.6;">
+                            "The best way to find yourself is to lose yourself in the service of others."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            - Mahatma Gandhi
+                        </p>
+                    </div>
+                </div>
+
+                <div class="advice-card">
+                    <div class="wisdom-quote">
+                        <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.6;">
+                            "In the middle of difficulty lies opportunity."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            - Albert Einstein
+                        </p>
+                    </div>
+                </div>
+
+                <div class="advice-card">
+                    <div class="wisdom-quote">
+                        <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.6;">
+                            "The only way to do great work is to love what you do."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            - Steve Jobs
+                        </p>
+                    </div>
+                </div>
+
+                <div class="advice-card">
+                    <div class="wisdom-quote">
+                        <p style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.6;">
+                            "Be yourself; everyone else is already taken."
+                        </p>
+                        <p style="color: #cccccc; font-size: 14px; font-style: italic;">
+                            - Oscar Wilde
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about the advice corner</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        How does the advice corner work?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The advice corner is a space where community members can share their wisdom, life experiences, and helpful tips. You can submit advice through our form, and it will be sent to our community moderator who may share valuable insights with the community.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        What kind of advice can I share?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Any positive, constructive advice is welcome! This includes life lessons, career tips, relationship advice, personal growth insights, study tips, health and wellness advice, or any wisdom you've gained from your experiences.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Is my personal information safe?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, your privacy is important to us. Your email is only used to contact you if needed and will never be shared publicly. You can choose to use a username instead of your real name if you prefer to remain anonymous.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Can I ask for specific advice?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! You can reach out directly through Instagram (@ahsanijaz010) or Discord (ahsan_prime) for personal advice or specific questions. The community is also great for getting diverse perspectives on challenges you're facing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        How can I connect with other community members?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Join our main chat channel to connect with other members! You can also participate in discussions in our philosophy, religion, and other topic-specific channels. Everyone is welcome to share and learn together.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        What if I need immediate help or support?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>For urgent matters, please reach out directly through Discord (ahsan_prime) for faster response. For professional help with serious issues, we always recommend consulting with qualified professionals, counselors, or support services in your area.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <div class="card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 50px 40px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));">
+                <div style="margin-bottom: 30px;">
+                    <div class="advice-symbol floating-lightbulb" style="font-size: 64px; margin-bottom: 20px;">🤝</div>
+                    <h2 style="color: #ffffff; margin-bottom: 16px; font-size: 32px; font-weight: 800; text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);">Ready to Make a Difference?</h2>
+                </div>
+                
+                <p style="color: #cccccc; font-size: 18px; margin-bottom: 30px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Your experiences and wisdom could be exactly what someone needs to hear today. 
+                    Join our supportive community where everyone learns from each other and grows together.
+                </p>
+                
+                <div class="cta-buttons" style="margin-bottom: 30px;">
+                    <a href="#submit-advice" class="btn btn-primary">
+                        <i class="fas fa-lightbulb"></i>
+                        Share Your Wisdom
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-comments"></i>
+                        Join Main Chat
+                    </a>
+                </div>
+                
+                <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <p style="color: #999999; font-size: 14px; line-height: 1.5; font-style: italic;">
+                        "We make a living by what we get, but we make a life by what we give." - Winston Churchill
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Advice Corner</h4>
+                    <p>A supportive space where community members share wisdom, seek guidance, and connect through meaningful advice and life experiences.</p>
+                    <p style="margin-top: 16px; font-style: italic; opacity: 0.8;">
+                        "The best way to find yourself is to lose yourself in the service of others." - Gandhi
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect with Me</h4>
+                    <a href="https://instagram.com/ahsanijaz010" target="_blank">Instagram - @ahsanijaz010</a>
+                    <a href="https://discord.com/users/ahsan_prime" target="_blank">Discord - ahsan_prime</a>
+                    <p style="margin-top: 12px; font-size: 13px; color: #999999;">
+                        Reach out for personal advice, questions, or just to chat!
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community Support</h4>
+                    <p>✦ Share your wisdom and experiences</p>
+                    <p>✦ Seek guidance from the community</p>
+                    <p>✦ Connect with supportive members</p>
+                    <p>✦ Learn from diverse perspectives</p>
+                    <p>✦ Grow together through shared wisdom</p>
+                    <p>✦ Make meaningful connections</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Void Community. Where wisdom is shared and support is always available.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Enhanced form submission with better UX
+        function submitAdvice(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            const usernameField = document.getElementById('username');
+            const emailField = document.getElementById('email');
+            const adviceField = document.getElementById('advice');
+            
+            if (!usernameField || !emailField || !adviceField) {
+                showNotification('Form fields not found. Please refresh the page and try again.', 'error');
+                resetSubmitButton(submitBtn, originalText);
+                return;
+            }
+            
+            const username = usernameField.value.trim();
+            const email = emailField.value.trim();
+            const advice = adviceField.value.trim();
+            
+            // Enhanced validation
+            if (!username || !email || !advice) {
+                showNotification('Please fill in all fields to share your wisdom', 'error');
+                resetSubmitButton(submitBtn, originalText);
+                return;
+            }
+            
+            if (username.length < 2) {
+                showNotification('Please enter a valid name or username', 'error');
+                resetSubmitButton(submitBtn, originalText);
+                return;
+            }
+            
+            // Enhanced email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                resetSubmitButton(submitBtn, originalText);
+                return;
+            }
+            
+            if (advice.length < 10) {
+                showNotification('Please share more detailed advice (at least 10 characters)', 'error');
+                resetSubmitButton(submitBtn, originalText);
+                return;
+            }
+            
+            // Create enhanced mailto link
+            const subject = encodeURIComponent(`💡 Wisdom Shared: Advice from ${username} - The Void Advice Corner`);
+            const body = encodeURIComponent(`
+🌟 NEW ADVICE SUBMISSION FROM THE VOID COMMUNITY 🌟
+
+👤 From: ${username}
+📧 Email: ${email}
+📅 Submitted: ${new Date().toLocaleString()}
+
+💡 SHARED WISDOM:
+${advice}
+
+---
+✨ This advice was submitted through The Void's Advice Corner
+🔗 Community: The Void Discord-inspired Website
+📍 Channel: # advice-corner
+
+Thank you for sharing your wisdom with our community! 🙏
+            `);
+            
+            const mailtoLink = `mailto:looneyahsan@gmail.com?subject=${subject}&body=${body}`;
+            
+            try {
+                // Simulate processing time for better UX
+                setTimeout(() => {
+                    // Open email client
+                    window.location.href = mailtoLink;
+                    
+                    // Reset form with animation
+                    const form = document.getElementById('adviceForm');
+                    if (form) {
+                        form.reset();
+                        
+                        // Add success animation to form
+                        form.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            form.style.transform = 'scale(1)';
+                        }, 200);
+                    }
+                    
+                    // Show enhanced success message
+                    showNotification('🎉 Thank you for sharing your wisdom! Your email client should open now. Your advice could help someone today!', 'success');
+                    
+                    // Reset button
+                    resetSubmitButton(submitBtn, originalText);
+                    
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                }, 1500);
+                
+            } catch (error) {
+                showNotification('There was an error opening your email client. Please try again or contact us directly.', 'error');
+                resetSubmitButton(submitBtn, originalText);
+                console.error('Email error:', error);
+            }
+        }
+        
+        function resetSubmitButton(button, originalText) {
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 500);
+        }
+
+        // Enhanced notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => {
+                notification.style.animation = 'slideOutRight 0.3s ease-in forwards';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 18px; flex-shrink: 0;">${icon}</span>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; margin-bottom: 4px;">${type === 'success' ? 'Success!' : type === 'error' ? 'Oops!' : 'Info'}</div>
+                        <div style="font-size: 14px; line-height: 1.4;">${message}</div>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: inherit; cursor: pointer; font-size: 18px; opacity: 0.7; flex-shrink: 0;">&times;</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 6 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideOutRight 0.3s ease-in forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 6000);
+        }
+
+        // FAQ Toggle with enhanced animations
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allIcons = document.querySelectorAll('.faq-icon');
+            
+            // Close all other FAQ items with animation
+            allAnswers.forEach((item, index) => {
+                if (item !== answer && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    allIcons[index].textContent = '+';
+                    allIcons[index].style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ with enhanced animation
+            answer.classList.toggle('active');
+            
+            if (answer.classList.contains('active')) {
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+                
+                // Add a subtle bounce effect
+                setTimeout(() => {
+                    answer.style.transform = 'scale(1.01)';
+                    setTimeout(() => {
+                        answer.style.transform = 'scale(1)';
+                    }, 150);
+                }, 100);
+            } else {
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Enhanced form interactions
+        function initFormInteractions() {
+            const inputs = document.querySelectorAll('.form-input, .form-textarea');
+            
+            inputs.forEach(input => {
+                // Focus effects
+                input.addEventListener('focus', () => {
+                    input.parentElement.style.transform = 'scale(1.02)';
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    input.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.1)';
+                });
+                
+                input.addEventListener('blur', () => {
+                    input.parentElement.style.transform = 'scale(1)';
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    input.style.boxShadow = 'none';
+                });
+                
+                // Real-time validation feedback
+                input.addEventListener('input', () => {
+                    if (input.value.trim()) {
+                        input.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+                    } else {
+                        input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }
+                });
+            });
+        }
+
+        // Social connect hover effects
+        function initSocialConnects() {
+            const socialConnects = document.querySelectorAll('.social-connect');
+            
+            socialConnects.forEach(connect => {
+                connect.addEventListener('mouseenter', () => {
+                    const icon = connect.querySelector('.social-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.1) rotate(5deg)';
+                    }
+                });
+                
+                connect.addEventListener('mouseleave', () => {
+                    const icon = connect.querySelector('.social-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1) rotate(0deg)';
+                    }
+                });
+            });
+        }
+
+        // Wisdom quotes hover effects
+        function initWisdomQuotes() {
+            const quotes = document.querySelectorAll('.wisdom-quote');
+            
+            quotes.forEach(quote => {
+                quote.addEventListener('mouseenter', () => {
+                    quote.style.transform = 'translateX(5px) scale(1.02)';
+                    quote.style.borderLeftColor = 'rgba(255, 255, 255, 0.4)';
+                });
+                
+                quote.addEventListener('mouseleave', () => {
+                    quote.style.transform = 'translateX(0) scale(1)';
+                    quote.style.borderLeftColor = '#ffffff';
+                });
+            });
+        }
+
+        // Scroll animations for advice cards
+        function initScrollAnimations() {
+            const cards = document.querySelectorAll('.advice-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initFormInteractions();
+            initSocialConnects();
+            initWisdomQuotes();
+            initScrollAnimations();
+            
+            // Initialize FAQ functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => toggleFAQ(question));
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add slide out animation CSS
+        const slideOutCSS = `
+            @keyframes slideOutRight {
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = slideOutCSS;
+        document.head.appendChild(styleSheet);
+
+        // Form validation on submit
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('adviceForm');
+            if (form) {
+                form.addEventListener('submit', submitAdvice);
+            }
+        });
+
+        // Add typing indicator for textarea
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('advice');
+            if (textarea) {
+                const counter = document.createElement('div');
+                counter.style.cssText = `
+                    text-align: right;
+                    font-size: 12px;
+                    color: #999999;
+                    margin-top: 8px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                textarea.parentElement.appendChild(counter);
+                
+                textarea.addEventListener('input', () => {
+                    const length = textarea.value.length;
+                    counter.textContent = `${length} characters`;
+                    counter.style.opacity = length > 0 ? '1' : '0';
+                    
+                    if (length >= 10) {
+                        counter.style.color = '#4ade80';
+                    } else {
+                        counter.style.color = '#999999';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
